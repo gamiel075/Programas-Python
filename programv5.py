@@ -34,8 +34,6 @@ class Rote:
 
         elif(self._status == False):
             Rote.denied_route +=1
-
-
         
       
     def consult(self):
@@ -164,6 +162,15 @@ r31 = object.__new__(Rote)
 r31.__init__('r31','Rio de Janeiro','Belo Horizonte',550,5,10700,False)
 Rote.consult(r31)
 print(type(r31))
+
+
+
+ 
+
+
+
+
+
 
 
 
