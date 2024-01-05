@@ -82,8 +82,6 @@ class students_of_it(students):
             return  self._monthly_payment
         
  
-
-
 class students_of_cooking(students):
     def __init__(self,id_student,name_student,age_student,password,monthly_payment,teacher,works_in_the_kitchen):
         super().__init__(id_student,name_student,age_student,password,monthly_payment,teacher)
@@ -105,6 +103,19 @@ class students_of_right(students):
     def __init__(self,id_student,name_student,age_student,password,monthly_payment,teacher,occupation_area):
             super().__init__(id_student,name_student,age_student,password,monthly_payment,teacher)
             self._occupation_area = occupation_area
+
+
+class rate_control():
+    def __init__(self,total_rate = 0 ):
+        self._total_rate = total_rate
+
+    def registre(self,students):
+        self._total_rate += students.rate()
+
+    @property
+    def total_rate(self):
+       return self._total_rate
+
 
 student1 = students_of_it(1, "Alice", 20, 1234, 500, "John Doe", "4 years", "Computer Science", True)
 student2 = students_of_it(2, "Bob", 22, 5678, 550, "Jane Smith", "3 years", "Information Technology", False)
@@ -138,6 +149,17 @@ student27 = students_of_cooking(27, "George", 24, 3333, 540, "Olivia Martinez", 
 student28 = students_of_cooking(28, "Hannah", 19, 4444, 550, "Daniel Brown", False)
 student29 = students_of_cooking(29, "Isaac", 22, 8888, 560, "Emily Taylor", True)
 student30 = students_of_cooking(30, "Jack", 21, 7777, 570, "Natalie Clark", False)
+
+control = rate_control()
+control.registre(student1)
+control.registre(student2)
+control.registre(student3)
+control.registre(student4)
+control.registre(student5)
+control.registre(student6)
+print(control.total_rate)
+#saida = 37710
+
 
 
 
