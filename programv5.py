@@ -112,6 +112,9 @@ class Rote:
                  }
         table2= pd.DataFrame(dados)
         print(table2)
+
+
+    
     
    
 

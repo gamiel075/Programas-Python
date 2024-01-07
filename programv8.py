@@ -78,6 +78,27 @@ class Roupas:
         self._nome =nome
 
 
+class Pacote:
+    def __init__(self,nome_produto,produtos):
+        self.name_produto = nome_produto
+        self._produtos = produtos
+
+    def __getitem__(self,item):
+        return self._produtos[item]
+    
+    def __len__(self):
+        return len(self._produtos)
+    
+    def listagem(self):
+        print(self._produtos)
+    
+    def tamanho(self):
+        print(len(self._produtos))
+
+    def add_item(self,item):
+        self._produtos.append(item)
+
+
 class gestão_promoção():
     def __init__(self,gestão_promoção = 0):
         self._gestão_promoção = gestão_promoção
@@ -141,6 +162,18 @@ print(gestão.gestão_promoção)
 
 p32= Roupas('camisa vermelha')
 gestão.registre(p32)
+
+lista_produtos = [p1,p2,p3]
+pacote = Pacote('clube top',lista_produtos)
+pacote.listagem()
+pacote.add_item(PRODUTO(554444,'papel higienico',10,'doméstico',20)) #4
+
+for g in pacote:
+    print(g.get_name())
+
+print(len(pacote)) #4
+print(pacote.listagem()) #saida: [<__main__.bebidas object at 0x000002AE53C384D0>, <__main__.bebidas object at 0x000002AE53C38550>, <__main__.bebidas object at 0x000002AE53C38590>, <__main__.PRODUTO object at 0x000002AE53C39390>]
+
 
 
 
