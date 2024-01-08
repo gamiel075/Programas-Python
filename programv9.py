@@ -16,6 +16,15 @@ class Transação:
         self._shipping_date = shipping_date
         self.list_transaction.append(self)
 
+    def get_id(self):
+        return self._id
+
+    def get_account(self):
+        return self._account_sender
+
+    def get_recipients_account(self):
+        return self._recipients_account
+
     def rate(self):
         return self._balance_sent * 0.05
     
@@ -62,21 +71,8 @@ class company_to_company(Transação):
 
     def rate(self):
         return self._balance_sent * 0.20
-    
 
-class profit():
-    def __init__(self,profit_management = 0):
-        self._profit_management = profit_management
-
-    def registre(self,profit_management):
-        if(isinstance(profit_management,Transação)):
-            self._profit_management += profit_management.rate()
-        else:
-            print('o obj add {} não tem implementaçao aqui'.format(self.__class__.__name__))
-
-    @property
-    def profit_management(self):
-        return self._profit_management
+   
     
 class bank:
 
@@ -98,6 +94,20 @@ class bank:
 
     def add_item(self,item):
         self.transactions.append(item)
+
+class profit():
+    def __init__(self,profit_management = 0):
+        self._profit_management = profit_management
+
+    def registre(self,profit_management):
+        if(isinstance(profit_management,Transação)):
+            self._profit_management += profit_management.rate()
+        else:
+            print('o obj add {} não tem implementaçao aqui'.format(self.__class__.__name__))
+    
+    @property
+    def profit_management(self):
+        return self._profit_management
 
 
 
@@ -142,6 +152,20 @@ balance.registre(t15)
 balance.registre(t26)
 print(balance.profit_management)
 #saida:215856.0
+
+list_transfer = [ t1,t2,t3,t4,t5,t6,t7]
+banK = bank('transfer_bank',list_transfer)
+banK.listagem()
+
+for g in banK:
+    print(g.get_id())
+    #saida:1111,1112,1113,1114,1115,1116,1117
+
+
+print(len(banK)) 
+#saida =7
+
+
 
 
             
