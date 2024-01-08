@@ -4,8 +4,6 @@ class Transação:
     #atenção os atributos não estão privados para melhor estudo.
     #attention the attributes are not private for better study.
 
-
-
     list_transaction = []
 
     def __init__(self,id,account_sender,recipients_account,balance_sent,shipping_date):
@@ -43,7 +41,7 @@ class person_to_person(Transação):
     def __init__(self,id,account_sender,recipients_account,balance_sent,shipping_date):
         super().__init__(id,account_sender,recipients_account,balance_sent,shipping_date)
         self._balance_sent = balance_sent
-        #name mangling
+        #name mangling (resolução para conflito de nomes)
 
     def rate(self):
 
@@ -56,12 +54,6 @@ class person_to_person(Transação):
 
         elif(self._balance_sent > 10000 and  self._balance_sent < 15000):
             return self._balance_sent * 0.03
-        
-        
-        
-        
-
-
 
         
 class company_to_company(Transação):
@@ -109,8 +101,6 @@ class profit():
     def profit_management(self):
         return self._profit_management
 
-
-
     #id,cliente(fisico),empresa(destinário),valor enviaado,data de envio,contexto se é compra ou venda
 
 t1 = person_to_company(1111,'gabriel','nike',2000,'01/03/2025','compra')
@@ -145,7 +135,6 @@ t29 = person_to_company(1139, 'Amazon', 'Intel', 2475000, '27/04/2025', 'compra'
 t30 = person_to_company(1140, 'Mercado Livre', 'AMD', 2550000, '30/04/2025', 'pagamento de fatura')
 t31 = person_to_company(1141, 'Magalu', 'NVIDIA', 2600000, '03/05/2025', 'investimento')
 
-
 balance = profit()
 balance.registre(t1)
 balance.registre(t15)
@@ -161,10 +150,12 @@ for g in banK:
     print(g.get_id())
     #saida:1111,1112,1113,1114,1115,1116,1117
 
-
 print(len(banK)) 
-#saida =7
+#saida = 7
 
+  
+
+ 
 
 
 
