@@ -28,10 +28,7 @@ class shopping_foods(shopping):
     def consult(self):
         return self.get_id()
 
-      
-
     
-
 c1 = shopping_foods(1111,'gabriel',20.25,'01/02/2024')
 c2 = shopping_foods(2222, 'ana', 15.50, '05/03/2024')
 c3 = shopping_foods(3333, 'carlos', 30.00, '10/04/2024')
@@ -44,3 +41,4 @@ c9 = shopping_foods(9999, 'fernanda', 27.45, '08/10/2024')
 c10 = shopping_foods(1010, 'rafael', 35.60, '12/11/2024')
 
 print(c10.consult()) #saida = 1010
+ 
